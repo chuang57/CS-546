@@ -1,23 +1,48 @@
-<article>
-  <h1>{{shows.name}}</h1>
-  <img src="{{shows.image.medium}}" />
+<article class="art">
+  <h1 class="name">{{shows.name}}</h1>
+  <img src="{{shows.image.medium}}" onerror="this.onerror=null; this.src='/public/images/noImg.png'"  class="image" />
 
-  <dl>
-    <dt>Language</dt>
-    <dd>{{shows.language}}</dd>
-    <dt>Genres</dt>
+  <dl class="desc">
+    <dt class="t">Language</dt>
     <dd>
-      <ul>
+      {{#if shows.language}}
+        <h1>{{shows.language}}</h1>
+      {{else}}
+        <h1>N/A</h1>
+      {{/if}}
+    </dd>
+    <dt class="t">Genres</dt>
+    <dd>
+      <ul class="unlist">
         {{#each shows.genres}}
           <li>{{this}}</li>
         {{/each}}
       </ul>
     </dd>
-    <dt>Average Rating</dt>
-    <dd>{{shows.rating.average}}</dd>
-    <dt>Network</dt>
-    <dd>{{shows.network.name}}</dd>
-    <dt>Summary</dt>
-    <dd>{{shows.summary}}</dd>
+    <dt class="t">Average Rating</dt>
+    <dd>
+      {{#if shows.rating.average}}
+        <h1>{{shows.rating.average}}</h1>
+      {{else}}
+        <h1>N/A</h1>
+      {{/if}}
+    </dd>
+    <dt class="t">Network</dt>
+    <dd>
+      {{#if shows.network.name}}
+        <h1>{{shows.network.name}}</h1>
+      {{else}}
+        <h1>N/A</h1>
+      {{/if}}
+    </dd>
+    <dt class="t">Summary</dt>
+    <dd>
+      {{#if shows.summary}}
+        <h1>{{{shows.summary}}}</h1>
+      {{else}}
+        <h1>N/A</h1>
+      {{/if}}
+    </dd>
   </dl>
 </article>
+

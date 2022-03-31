@@ -7,6 +7,7 @@ getShowBySearch = async (term) => {
 
 getShowByID = async (id) => {
     const { data } = await axios.get(`http://api.tvmaze.com/shows/${id}`);
+    console.log(data);
     return data;
 }
 
